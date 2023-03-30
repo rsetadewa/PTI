@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tamagotchi Game</title>
+    <link rel="stylesheet" type="text/css" href="mainP2.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="container">
+      <div id="pet"></div>
+      <div id="buttons">
+        <button type="button" id="feed" class="btn btn-primary">Feed</button>
+        <button type="button" id="play" class="btn btn-primary">Play</button>
+        <button type="button" id="sleep" class="btn btn-primary">Sleep</button>
+      
+        
+        <a href="snake.html" class="btn btn-info" role="button">Link Button</a>
+      </div>
+      <div id="stats">
+        <p id="hunger">Hunger: <span>10</span></p>
+        <p id="happiness">Happiness: <span>10</span></p>
+        <p id="energy">Energy: <span>10</span></p>
+      </div>
+    </div>
+    
+    
+    <script type="text/javascript">
+        const pet = document.getElementById("pet");
+        const feedButton = document.getElementById("feed");
+        const playButton = document.getElementById("play");
+        const sleepButton = document.getElementById("sleep");
+        const hunger = document.getElementById("hunger").querySelector("span");
+        const happiness = document.getElementById("happiness").querySelector("span");
+        const energy = document.getElementById("energy").querySelector("span");
+
+        let isSleeping = false;
+        let isDead = false;
+
+        function updateStats() {
+        hunger.innerText = parseInt(hunger.innerText) - 1;
+        happiness.innerText = parseInt(happiness.innerText) - 1;
+        energy.innerText = parseInt(energy.innerText) - 1;
+        
+        if (parseInt(hunger.innerText) <= 0 || parseInt(happiness.innerText) <= 0 || parseInt(energy.innerText) <= 0) {
+            isDead = true;
+            alert("Your pet has died. Game over.");
+        }
+        }
+
+        setInterval(() => {
+        if (!isSleeping && !isDead) {
+            updateStats();
+        }
+        }, 1000);
+
+        feedButton.addEventListener("click", () => {
+        if (!isDead) {
+            hunger.innerText = parseInt(hunger.innerText) + 2;
+            energy.innerText = parseInt(energy.innerText) - 1;
+        }
+        });
+
+        playButton.addEventListener("click", () => {
+        if (!isDead) {
+            happiness.innerText = parseInt(happiness.innerText) + 2;
+            energy.innerText = parseInt(energy.innerText) - 1;
+        }
+        });
+
+        sleepButton.addEventListener("click", () => {
+        isSleeping = true;
+        energy.innerText = parseInt(energy.innerText) + 2;
+        hunger.innerText = parseInt(hunger.innerText) - 1;
+        
+        // Sleep for 5 seconds
+        setTimeout(() => {
+            isSleeping = false;
+        }, 5000);
+        });
+                
+    </script>
+</body>
+</html>
+

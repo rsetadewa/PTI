@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Simple Snake Game</title>
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+  </body>
+  <script type="text/javascript">
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    // Set up initial variables
+    const blockSize = 10;
+    const width = canvas.width / blockSize;
+    const height = canvas.height / blockSize;
+    let score = 0;
+    let snake = [
+    {x: 3, y: 3},
+    {x: 4, y: 3},
+    {x: 5, y: 3}
+    ];
+    let food = generateFood();
+
+    // Set up event listener for arrow keys
+    document.addEventListener('keydown', moveSnake);
+
+    // Move the snake
+    function moveSnake(event) {
+    const leftKey = 37;
+    const upKey = 38;
+    const rightKey = 39;
+    const downKey = 40;
+    
+    const keyPressed = event.keyCode;
+    
+    // Check that the arrow key was pressed
+    if ([leftKey, upKey, rightKey, downKey].includes(keyPressed)) {
+        // Prevent arrow keys from scrolling the page
+        event.preventDefault();
+        
+        // Determine direction to move the snake
+        const direction = getDirection(keyPressed);
+        
+        // Move the snake's head
+        const head = snake[0];
+        const newHead = {x: head.x + direction.x, y: head.y + direction.y};
+        snake.unshift(newHead);
+        
+        // Check if the snake ate the food
+        if (newHead.x === food.x && newHead.y === food.y) {
+        score++;
+        food = generateFood();
+        } else {
+        // Remove the snake's tail
+        snake.pop();
+        }
+        
+        // Check if the snake hit a wall or its own body
+        if (checkCollision()) {
+        gameOver();
+        } else {
+        // Draw the updated snake and food
+        draw();
+        }
+    }
+    }
+
+    // Determine direction to move the snake
+    function getDirection(keyPressed) {
+    switch (keyPressed) {
+        case 37: // left
+        return {x: -1, y: 0};
+        case 38: // up
+        return {x: 0, y: -1};
+        case 39: // right
+        return {x: 1, y: 0};
+        case 40: // down
+        return {x: 0, y: 1};
+    }
+    }
+
+    // Check if the snake hit a wall or its own body
+    function checkCollision() {
+    const head = snake[0];
+    
+    // Check if the snake hit a wall
+    if (head.x < 0 || head.x >= width || head.y < 0 || head.y >= height) {
+        return true;
+    }
+    
+    // Check if the snake hit its own body
+    for (let i = 1; i < snake.length; i++) {
+        if (head.x === snake[i].x && head.y === snake[i].y) {
+        return true;
+        }
+    }
+    
+    return false;
+    }
+
+    // Generate food
+    function generateFood() {
+    let foodX = Math.floor(Math.random() * width);
+    let foodY = Math.floor(Math.random() * height);
+
+    // Check that the food doesn't spawn on the snake
+    for (let i = 0; i < snake.length; i++) {
+    if (foodX === snake[i].x && foodY === snake[i].y) {
+    return generateFood();
+    }
+    }
+
+    return {x: foodX, y: foodY};
+    }
+
+    // Draw the snake and food
+    function draw() {
+    // Clear the canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw the snake
+    for (let i = 0; i < snake.length; i++) {
+    ctx.fillStyle = i === 0 ? '#00FF00' : '#006400';
+    ctx.fillRect(snake[i].x * blockSize, snake[i].y * blockSize, blockSize, blockSize);
+    }
+
+    // Draw the food
+    ctx.fillStyle = '#FF0000';
+    ctx.fillRect(food.x * blockSize, food.y * blockSize, blockSize, blockSize);
+
+    // Draw the score
+    ctx.fillStyle = '#000000';
+    ctx.font = '20px Arial';
+    ctx.fillText('Score: ' + score, 10, canvas.height - 10);
+    }
+
+    // Game over
+    function gameOver() {
+    alert('Game over! Your score is ' + score);
+    window.location.reload();
+    }
+
+    // Initialize the game
+    draw();
+
+
+  </script>
+</html>
+
