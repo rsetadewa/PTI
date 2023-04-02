@@ -1,16 +1,17 @@
 #logo img {
-
-    width: 50px;
+  align-self: center;
+    width: 70px;
 }
 
 .hero {
     height: 20%;
-    background-color: darkblue;
+    background-color: black;
     color: white;
 }
 
-
-
+#content {
+  margin: auto;
+}
 
 #characters{
     
@@ -25,6 +26,7 @@
     text-align: center;
     background-size: cover;
     min-height: 100vh;
+    min-width: fit-content;
     position:relative;
     color: white;
     text-shadow: 2px 2px 2px rgba(0,0,0,.2);
@@ -34,7 +36,9 @@
 #choosetitle {
     font-family:Helvetica;
 }
-.character-selection {
+
+
+  .character-selection {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,13 +47,16 @@
 
   
   .character-image-container {
+    text-align: center;
     width: 200px;
     height: 200px;
     margin-bottom: 20px;
   }
   
   #character-image {
-    align-self: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
     height: 100%;
   }
@@ -71,21 +78,11 @@
     outline: none;
   }
   
-  #testing2{
-    text-align: center;
-    background-size: cover;
-    position:relative;
-    color: white;
-    text-shadow: 2px 2px 2px rgba(0,0,0,.2);
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 
   #namebox {
     max-width: 700px;
-    width: 80%;
+    width: 100%;
     margin: auto;
 
     height: 50vb;
