@@ -4,4 +4,4 @@ Arking Luiz Davidson (00000082483)
 Ghazy Athaqi Supriadi (00000082331)
 Raditya Setadewa Bastian (00000082181)
 
-Github: https://github.com/rsetadewa/PTI/tree/main/PTI%20PTS%20Phase%202
+Github: https://github.com/rsetadewa/PTI.git
