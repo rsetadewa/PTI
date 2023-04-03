@@ -1,53 +1,80 @@
 #logo img {
-  align-self: center;
-    width: 70px;
-}
-
-.hero {
-    height: 20%;
-    background-color: black;
-    color: white;
-}
-
-
-#testing{
-  text-align: center;
-  background-size: cover;
-  min-height: 100vh;
-  min-width: fit-content;
-  position:relative;
-  color: white;
-  text-shadow: 2px 2px 2px rgba(0,0,0,.2);
-}
-
-
-
-#container {
-    width: 500px;
-    margin: 0 auto;
+    align-self: center;
+      width: 70px;
+  }
+  
+  .hero {
+      height: 20%;
+      background-color: black;
+      color: white;
+  }
+  
+  
+  #testing{
     text-align: center;
+    background-size: cover;
+    min-height: 100vh;
+    min-width: fit-content;
+    position:relative;
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0,0,0,.2);
   }
   
-  #pet {
-    width: 200px;
-    height: 200px;
-    background-color: pink;
-    margin: 50px auto;
-  }
   
+  
+  #container {
+      width: 500px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    #pet {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      margin: 50px auto;
+    }
+    
+  
+    
+    #stats {
+      font-size: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      justify-content: center;
+    }
+    
+    #stats p {
+      margin-bottom: 5px;
+    }
+    
+    #stats span {
+      font-weight: bold;
+    }
+    
+    img#character-img.img-fluid {
+        width: 60%;
+        margin-top: 100px;
+    }
 
-  
-  #stats {
-    font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  
-  #stats p {
-    margin-bottom: 5px;
-  }
-  
-  #stats span {
-    font-weight: bold;
-  }
-  
+    #testing.col-lg-8 img#character-image.img-fluid{
+        margin-top: 150px;
+    }
+
+    #stats {
+        margin-left: 60px;
+        width: 400px;
+        margin-top: 10px;
+        margin-bottom: 90px;
+    }
+
+    .col-6 > h2 {
+        margin-top: 15px;
+    }
+
+    button#feed.w-100 btn btn-secondary btn-block mx-auto {
+        border-radius: 1px solid black;
+        margin-top: 10px;
+    }
+    
+    
