@@ -23,6 +23,7 @@
 }
 
 #testing{
+    height: 20%;
     text-align: center;
     background-size: cover;
     min-height: 100vh;
@@ -36,57 +37,3 @@
 #choosetitle {
     font-family:Helvetica;
 }
-
-
-  .character-selection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-
-  
-  .character-image-container {
-    text-align: center;
-    width: 200px;
-    height: 200px;
-    margin-bottom: 20px;
-  }
-  
-  #character-image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .character-name {
-    margin-bottom: 20px;
-  }
-  
-  .turning-buttons {
-    display: flex;
-    justify-content: space-between;
-    width: 100px;
-  }
-  
-
-  
-  #previous-button:focus,
-  #next-button:focus {
-    outline: none;
-  }
-  
-
-
-  #namebox {
-    max-width: 700px;
-    width: 100%;
-    margin: auto;
-
-    height: 50vb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
